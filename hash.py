@@ -8,6 +8,7 @@ h_list = list()
 i = 0
 
 h_start = hashlib.sha1(bytes(h_str.encode())).digest()[0:int(n)]
+print(h_start)
 
 while True:
     h = hashlib.sha1(bytes(''.join(random.choices(ascii_letters + digits, k=len(h_str))).encode())).digest()[0:int(n)]
@@ -15,6 +16,7 @@ while True:
         print("Collision at {}".format(i))
         break
     else:
+        print(h)
         #h_list.append(h)
         i += 1
 
