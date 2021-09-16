@@ -12,7 +12,7 @@ h_list.append(hashlib.sha1(bytes(h_str.encode())).hexdigest()[0:int(n)])
 while True:
     h = hashlib.sha1(bytes(''.join(random.choice(ascii_letters) for j in range(len(h_str))).encode())).hexdigest()[0:int(n)]
     if h in h_list:
-        print("Collision at %d".format(i))
+        print("Collision at {}".format(i))
         break
     else:
         h_list.append(h)
