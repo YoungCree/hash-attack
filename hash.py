@@ -7,7 +7,7 @@ n = input("Number of bits to test: ")
 h_list = list()
 i = 0
 
-h_list.append(hashlib.sha1(bytes(h_str)).hexdigest()[0:n])
+h_list.append(hashlib.sha1(bytes(h_str.encode())).hexdigest()[0:n])
 
 while True:
     h = hashlib.sha1(bytes(''.join(random.choice(ascii_letters) for j in range(len(h_str))))).hexdigest()[0:n]
