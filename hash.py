@@ -11,10 +11,10 @@ h_list.append(hashlib.sha1(bytes(h_str.encode())).digest()[0:int(n)])
 
 while True:
     h = hashlib.sha1(bytes(''.join(random.choices(ascii_letters + digits, k=len(h_str))).encode())).digest()[0:int(n)]
-    if h in h_list:
+    if h == h_list[0]:
         print("Collision at {}".format(i))
         break
     else:
-        h_list.append(h)
+        #h_list.append(h)
         i += 1
 
