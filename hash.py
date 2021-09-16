@@ -7,11 +7,11 @@ n = input("Number of bits to test: ")
 h_list = list()
 i = 0
 
-h_start = hashlib.sha1(bytes(h_str.encode())).digest()[0:int(n)]
+h_start = hashlib.sha1(bytes.fromhex(h_str)).digest()[0:int(n)]
 #print(h_start)
 
 while True:
-    h = hashlib.sha1(bytes(''.join(random.choices(ascii_letters + digits, k=len(h_str))).encode())).digest()[0:int(n)]
+    h = hashlib.sha1(bytes.fromhex(''.join(random.choices(ascii_letters + digits, k=len(h_str))))).digest()[0:int(n)]
     if h == h_start:
         print("Collision at {}".format(i))
         break
