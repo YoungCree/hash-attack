@@ -12,7 +12,7 @@ n = int(n)
 
 h_start = hashlib.sha1(h_str.encode()).digest()[:ceil(n/8)]
 remain = n % 8
-h_start = int.from_bytes(h_start) >> remain
+h_start = int.from_bytes(h_start, byteorder='big') >> remain
 #print(h_start)
 
 rando = 'bananas' + str(random.randint(0, 100))
@@ -20,7 +20,7 @@ rando = 'bananas' + str(random.randint(0, 100))
 while True:
     rando = rando + str(i)
     h = hashlib.sha1(rando.encode()).digest()[:ceil(n/8)]
-    h = int.from_bytes(h) >> remain
+    h = int.from_bytes(h, byteorder='big') >> remain
     if h == h_start:
         print("Collision at {}".format(i))
         break
