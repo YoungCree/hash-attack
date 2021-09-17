@@ -13,6 +13,8 @@ n = int(n)
 
 h_start = hashlib.sha1(h_str.encode()).digest()[:ceil(n/8)]
 remain = 8 - (n % 8)
+if n % 8 == 0:
+    remain = 0
 h_start = int.from_bytes(h_start, byteorder='big') >> remain
 #print(h_start)
 
