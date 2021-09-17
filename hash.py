@@ -7,14 +7,19 @@ n = input("Number of bits to test: ")
 h_list = list()
 i = 0
 
-h_start = hashlib.sha1(h_str.encode()).digest()[0:int(n)]
+n = int(n)
+
+h_start = hashlib.sha1(h_str.encode()).digest()[:ceil(n/8)]
+remain = n % 8
+h_start = h_start >> remain
 #print(h_start)
 
-rando = 'bananas'
+rando = 'bananas' + str(random.randint(0, 100))
 
 while True:
     rando = rando + str(i)
-    h = hashlib.sha1(rando.encode()).digest()[0:int(n)]
+    h = hashlib.sha1(rando.encode()).digest()[:ceil(n/8)]
+    h = h >> remain
     if h == h_start:
         print("Collision at {}".format(i))
         break
