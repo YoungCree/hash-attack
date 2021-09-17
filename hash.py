@@ -11,7 +11,7 @@ i = 0
 n = int(n)
 
 h_start = hashlib.sha1(h_str.encode()).digest()[:ceil(n/8)]
-remain = n % 8
+remain = 8 - (n % 8)
 h_start = int.from_bytes(h_start, byteorder='big') >> remain
 #print(h_start)
 
