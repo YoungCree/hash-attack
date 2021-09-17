@@ -1,5 +1,6 @@
 import hashlib
 import random
+from math import ceil
 from string import ascii_letters, ascii_uppercase, digits
 
 h_str = input("String to hash: ")
