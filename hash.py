@@ -16,12 +16,11 @@ remain = 8 - (n % 8)
 if n % 8 == 0:
     remain = 0
 h_start = int.from_bytes(h_start, byteorder='big') >> remain
-#print(h_start)
 
 rando = 'bananas' + str(random.randint(0, 100))
 
 
-if (is_collision == 'c'):
+if (is_collision == 'p'):
     while True:
         rando = rando + str(i)
         h = hashlib.sha1(rando.encode()).digest()[:ceil(n/8)]
@@ -30,8 +29,6 @@ if (is_collision == 'c'):
             print("Collision at {}".format(i))
             break
         else:
-            #print(h)
-            #h_list.append(h)
             i += 1
 else:
     h_list.append(h_start)
@@ -43,7 +40,6 @@ else:
             print("Collision at {}".format(i))
             break
         else:
-            #print(h)
             h_list.append(h)
             i += 1
 
